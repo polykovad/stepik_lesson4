@@ -74,11 +74,6 @@ class ProductPage(BasePage):
         assert (name_product == self.browser.find_element(*MainPageLocators.NAME_IN_ALERT).text
                 and price_product == self.browser.find_element(*MainPageLocators.PRICE_IN_ALERT).text), "Not correct name and price in basket"
 
-
         print("\nBook " + name_product + " was added!")
 
 
-    def should_be_empty_basket(self):
-        print(self.browser.find_element(*MainPageLocators.EMPTY_BASKET).text)
-        assert (self.browser.find_element(*MainPageLocators.EMPTY_BASKET).text == "Your basket is empty. Continue shopping"), \
-            "Basket is not empty"
