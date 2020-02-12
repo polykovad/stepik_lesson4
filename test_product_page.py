@@ -84,6 +84,7 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     #gроверяем, что нет сообщения об успехе
     page.should_not_be_success_message_disapeared()
 
+
 def test_guest_should_see_login_link_on_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
