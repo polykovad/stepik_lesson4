@@ -58,18 +58,8 @@ class ProductPage(BasePage):
         print("\nName book on the page - " + name_product)
         print("\nPrice book on the page - " + price_product)
 
-        #print("\nName book in basket - " + self.browser.find_element(*MainPageLocators.NAME_PRODUCT_BASKET).text)
-        #print("\nPrice book in basket - " + self.browser.find_element(*MainPageLocators.PRICE_PRODUCT_BASKET).text)
-
         print("\nName book in basket - " + self.browser.find_element(*MainPageLocators.NAME_IN_ALERT).text)
         print("\nPrice book in basket - " + self.browser.find_element(*MainPageLocators.PRICE_IN_ALERT).text)
-
-        # переходим в корзину
-        # basket.click()
-        # time.sleep(2)
-
-        #assert (name_product == self.browser.find_element(*MainPageLocators.NAME_PRODUCT_BASKET).text
-        #        and price_product == self.browser.find_element(*MainPageLocators.PRICE_PRODUCT_BASKET).text), "Not correct name and price in basket"
 
         assert (name_product == self.browser.find_element(*MainPageLocators.NAME_IN_ALERT).text
                 and price_product == self.browser.find_element(*MainPageLocators.PRICE_IN_ALERT).text), "Not correct name and price in basket"
