@@ -3,6 +3,7 @@ from .pages.login_page import LoginPage
 from .pages.locators import MainPageLocators
 from .pages.locators import BasePageLocators
 from .pages.locators import LoginPageLocators
+from .pages.basket_page import BasketPage
 import pytest
 import time
 
@@ -96,6 +97,7 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
 
     page.go_to_basket()
 
+    page = BasketPage(browser,link)
     page.should_be_empty_basket()
 
 @pytest.mark.need_review
@@ -107,8 +109,8 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.open()
 
     page.go_to_basket()
-
-    page.should_be_empty_basket()
+    basket = BasketPage(browser, link)
+    basket.should_be_empty_basket()
 
 @pytest.mark.need_review
 def test_guest_can_go_to_login_page_from_product_page(browser):
