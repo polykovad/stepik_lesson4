@@ -53,12 +53,6 @@ class BasePage():
         basket.click()
         time.sleep(2)
 
-    def should_delete_product(self):
-        field = self.browser.find_element(*BasePageLocators.FIELD_NUM)
-        field.clear()
-        field.send_keys("0")
-        button_update = self.browser.find_element(*BasePageLocators.UPDATE_BUTTON)
-        button_update.click()
 
     def should_be_authorized_user(self):
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \

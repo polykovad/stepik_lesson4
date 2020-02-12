@@ -191,6 +191,8 @@ class TestUserAddToBasketFromProductPage():
         page.should_product_correct()
 
         page.go_to_basket()
-        page.should_delete_product()
+
+        basket = BasketPage(browser, link)
+        basket.should_delete_product()
 
         time.sleep(1)
