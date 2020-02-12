@@ -125,7 +125,8 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 @pytest.mark.login_user
 class TestUserAddToBasketFromProductPage():
-    def test_add_new_user(self, browser):
+    @pytest.fixture(scope="function", autouse=True)
+    def setup(self, browser):
         link = LoginPageLocators.LINK_LOGIN
         page = LoginPage(browser, link)
         page.open()
@@ -135,17 +136,6 @@ class TestUserAddToBasketFromProductPage():
         page.should_be_authorized_user()
 
     def test_user_cant_see_success_message(self, browser):
-        #регистрация
-        link = MainPageLocators.LINK_MAIN
-        page = LoginPage(browser, link)
-        page.open()
-        page.go_to_login_page()
-        time.sleep(3)
-        page.should_be_login_form()
-        page.should_be_login_user()
-        time.sleep(3)
-
-        page.should_be_authorized_user()
 
         #проверка сообщения
         link = MainPageLocators.LINK_MAIN
@@ -159,17 +149,6 @@ class TestUserAddToBasketFromProductPage():
 
     @pytest.mark.need_review
     def test_user_can_add_product_to_basket(self, browser):
-        # регистрация
-        link = MainPageLocators.LINK_MAIN
-        page = LoginPage(browser, link)
-        page.open()
-        page.go_to_login_page()
-        time.sleep(3)
-        page.should_be_login_form()
-        page.should_be_login_user()
-        time.sleep(3)
-
-        page.should_be_authorized_user()
 
         #добавляем продукт в корзину
         link = MainPageLocators.LINK_MAIN
